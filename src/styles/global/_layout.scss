@@ -1,0 +1,33 @@
+$padding-inline: 1rem;
+$content-max-width: 1200px;
+$breakout-max-width: 1500px;
+$breakout-size: calc(($breakout-max-width - $content-max-width) / 2);
+
+
+.content-grid {
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax($padding-inline, 1fr)
+    [breakout-start] minmax(0, $breakout-size)
+    [content-start] min(100% - ($padding-inline * 2), $content-max-width) [content-end]
+    minmax(0, $breakout-size) [breakout-end]
+    minmax($padding-inline, 1fr) [full-width-end];
+}
+
+.content-grid > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+  grid-column: content;
+}
+
+.content-grid > .breakout {
+  grid-column: breakout;
+  background-color: violet;
+}
+
+.content-grid > .full-width {
+  grid-column: full-width;
+  background-color: palevioletred;
+
+  display: grid;
+  grid-template-columns: inherit;
+}
