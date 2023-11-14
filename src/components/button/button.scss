@@ -1,0 +1,45 @@
+@use "../../styles/mixins/button" as btn;
+@use "../../styles/mixins/breakpoints" as *;
+@use "../../styles/variables/shared" as var;
+
+
+.btn {
+  @include btn.button-reset();
+
+  color: var.$color-white;
+  background: var.$color-dark-blue;
+  min-width: 10.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var.$font-weight-bold;
+  min-height: 3rem;
+
+  @include media-breakpoint-up($xl) {
+    font-size: var.$font-size-lg;
+    min-height: 3.5rem;
+  }
+
+  &:hover {
+    background: var.$color-blue;
+  }
+
+  &--gradient01 {
+    background: var.$color-gradient-01;
+
+    &:hover {
+      background: var.$color-gradient-01-hv;
+    }
+
+  }
+
+  &--gradient02 {
+    background: var.$color-gradient-02;
+
+    &:hover {
+      background: var.$color-gradient-02-hv;
+    }
+  }
+}
