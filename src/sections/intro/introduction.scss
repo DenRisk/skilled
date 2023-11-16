@@ -1,0 +1,91 @@
+@use '../../styles/mixins/breakpoints' as *;
+@use '../../styles/variables/shared' as var;
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+
+  @include media-breakpoint-up($md) {
+    align-items: flex-start;
+    padding: 5rem 0;
+    flex-direction: row;
+    margin-bottom: 5rem;
+
+  }
+
+  @include media-breakpoint-up($xl) {
+    padding: 10rem 0 2rem;
+    flex-direction: row;
+  }
+
+  &__content {
+    @include media-breakpoint-up($md) {
+      max-width: 50%
+    }
+  }
+
+  &__heading {
+    margin-bottom: 1.5rem;
+  }
+
+  &__text {
+    margin-bottom: 2.5rem;
+    color: var.$color-grey;
+    line-height: 1.6;
+
+    @include media-breakpoint-up($xl) {
+      font-size: var.$font-size-lg
+    }
+  }
+
+  &__imageContainer {
+    max-width: 30rem;
+
+    @include media-breakpoint-up($md) {
+      max-width: unset;
+      position: absolute;
+      top: -3rem;
+      right: -18rem;
+    }
+
+    @include media-breakpoint-up($xl) {
+      position: relative;
+      scale: 1.6;
+      top: -14rem;
+      right: -14rem;
+    }
+  }
+
+  &__image {
+    &--mobile {
+      @include media-breakpoint-up($md) {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include media-breakpoint-up($md) {
+        display: block;
+      }
+
+      @include media-breakpoint-up($xl) {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include media-breakpoint-up($xl) {
+        display: block;
+
+      }
+    }
+  }
+}

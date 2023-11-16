@@ -1,0 +1,12 @@
+@use '../../styles/variables/shared' as var;
+
+.footer {
+  background-color: var.$color-dark-blue;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 0;
+  }
+}

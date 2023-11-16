@@ -1,4 +1,6 @@
-$padding-inline: 1rem;
+@use "../mixins/breakpoints" as *;
+
+$padding-inline: clamp(1rem, 5vw, 4rem);
 $content-max-width: 1200px;
 $breakout-max-width: 1500px;
 $breakout-size: calc(($breakout-max-width - $content-max-width) / 2);
@@ -21,12 +23,10 @@ $breakout-size: calc(($breakout-max-width - $content-max-width) / 2);
 
 .content-grid > .breakout {
   grid-column: breakout;
-  background-color: violet;
 }
 
 .content-grid > .full-width {
   grid-column: full-width;
-  background-color: palevioletred;
 
   display: grid;
   grid-template-columns: inherit;

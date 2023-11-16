@@ -1,0 +1,51 @@
+@use "../../styles/mixins/button" as btn;
+@use "../../styles/mixins/breakpoints" as *;
+@use "../../styles/variables/shared" as var;
+
+.category {
+  display: flex;
+  flex-direction: column;
+  padding: 3.5rem 2rem 2rem 2rem;
+  background-color: var.$color-white;
+  box-shadow: 0 25px 50px 0 rgba(6, 22, 141, 0.04);
+  position: relative;
+  border-radius: 0.75rem;
+
+  &__iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    position: absolute;
+    left: 2rem;
+    top: 0;
+    transform: translateY(-50%);
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    margin-bottom: 1.5rem;
+    color: var.$color-grey;
+    line-height: 1.6;
+
+    @include media-breakpoint-up($xl) {
+      font-size: var.$font-size-lg;
+    }
+  }
+
+  &__link {
+    margin-top: auto;
+    font-size: var.$font-size-lg;
+    color: var.$color-dark-pink;
+    font-weight: var.$font-weight-bold;
+    cursor: pointer;
+
+    &:hover {
+      color: var.$color-light-pink;
+    }
+  }
+}
